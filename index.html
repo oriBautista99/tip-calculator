@@ -2,43 +2,89 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Tip calculator app</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <title>Tip calculator app</title>
 </head>
 <body>
 
-  Bill
+  <header>
+    <img src="./images/logo.svg" alt="logo">
+  </header>
+  <section>
+    <div class="data">
+      <div class="data__input">
+        <label for="bill">Bill</label>
+        <input type="number" id="bill" placeholder="0">      
+        <img src="./images/icon-dollar.svg" alt="dolar icon">  
+      </div>
+      <div class="data__tips">
+        <span>Select Tip %</span>
+        <div class="tips__buttons">
+          <button class="tip" tip="5">5%</button>
+          <button class="tip" tip="10">10%</button>
+          <button class="tip" tip="15">15%</button>
+          <button class="tip" tip="25">25%</button>
+          <button class="tip" tip="50">50%</button>
+          <input type="number" id="custom" placeholder="Custom">
+        </div>
+      </div>
+      <div class="data__input">
+        <label for="number_people">Number of People</label>
+        <span id="error_zero" class="hidden">Can't be zero</span>
+        <input type="number" id="number_people" placeholder="0" min="1">   
+        <img src="./images/icon-person.svg" alt="dolar icon">  
+      </div>
+    </div>
+    <div class="results">
+      <div class="results__container">
+        <div class="results__amount">
+          <div class="info">
+            <p class="title">Tip Amount</p>
+            <p class="subtitle">/ person</p>
+          </div>
+          <div class="cant">
+            <span id="tipPerPerson">$0.00</span>
+          </div>
+        </div>
+        <div class="results__amount">
+          <div class="info">
+            <p class="title">Tip Amount</p>
+            <p class="subtitle">total</p>
+          </div>
+          <div class="cant">
+            <span id="totalTip">$0.00</span>
+          </div>
+        </div>   
+        <div class="results__amount">
+          <div class="info">
+            <p class="title">Bill + Tips</p>
+            <p class="subtitle">total</p>
+          </div>
+          <div class="cant">
+            <span id="totalBillTip">$0.00</span>
+          </div>
+        </div>      
+      </div>
+      <button id="reset" disabled >Reset</button>
+    </div>
+  </section>
 
-  Select Tip %
-  5%
-  10%
-  15%
-  25%
-  50%
-  Custom
-
-  Number of People
-
-  Tip Amount
-  / person
-
-  Total
-  / person
-
-  Reset
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
+  <div class="container">
+    <div id="alert" class="error">
+      <div class="error__icon">
+        <img src="/images/error.svg" alt="error">
+      </div>
+      <div class="error__title" id="error_title">Faltan datos</div>
+      <div class="error__close" onclick="closeAlert()">
+        <img src="/images/close.svg" alt="close">
+      </div>
+    </div>    
   </div>
+  <script src="js/script.js"></script>
 </body>
 </html>
